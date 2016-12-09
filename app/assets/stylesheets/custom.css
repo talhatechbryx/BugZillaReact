@@ -1,0 +1,11 @@
+.project_form {
+  width: 25em !important;
+  position: relative !important;
+  margin-left: 1em !important;
+}
+.project_table {
+  position: absolute;
+  top: 6em;
+  left: 39em;
+  width: 46em !important;
+}

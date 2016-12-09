@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactOnRails from 'react-on-rails';
+import { Router, Route, hashHistory } from 'react-router';
 
 import Dashboard from '../containers/Dashboard';
 

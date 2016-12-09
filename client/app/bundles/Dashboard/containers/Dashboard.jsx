@@ -1,23 +1,25 @@
 import React, { PropTypes } from 'react';
-import DashboardWidget from '../components/DashboardWidget';
-
+import { Router, Route, browserHistory } from 'react-router';
+import EachProject from '../components/EachProject';
+import ListingComponent from '../components/ListingComponent';
+import ProjectShowComponent from '../components/ProjectShowComponent';
 // Simple example of a React "smart" component
 export default class Dashboard extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    console.log(this.props);
-
-    // How to set initial state in ES6 class syntax
-    // https://facebook.github.io/react/docs/reusable-components.html#es6-classes
-    // this.state = { projects: this.props.projects };
+    this.state = { 
+      projects: this.props.projects };
   }
 
-
   render() {
+    <Router history={browserHistory}>
+      <Route path="/" component={Dashboard}></Route>
+    </Router>
+
     return (
       <div>
-        <DashboardWidget projects={this.state} />
+        <ListingComponent projects={this.props.projects}/>
       </div>
     );
   }

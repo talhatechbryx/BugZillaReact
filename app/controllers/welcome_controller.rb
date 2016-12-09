@@ -4,4 +4,5 @@ class WelcomeController < ApplicationController
     @projects = Project.all
   end
 
+
 end

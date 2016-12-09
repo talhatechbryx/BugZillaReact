@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161202080641) do
+ActiveRecord::Schema.define(version: 20161205132219) do
 
   create_table "bugs", force: :cascade do |t|
     t.string   "title"
@@ -21,10 +21,28 @@ ActiveRecord::Schema.define(version: 20161202080641) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "photos", force: :cascade do |t|
+    t.string   "photoable_type"
+    t.integer  "photoable_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.index ["photoable_id", "photoable_type"], name: "index_photos_on_photoable_id_and_photoable_type"
+    t.index ["photoable_type", "photoable_id"], name: "index_photos_on_photoable_type_and_photoable_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "desc"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "projects_users", id: false, force: :cascade do |t|

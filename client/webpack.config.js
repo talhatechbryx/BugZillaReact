@@ -33,7 +33,7 @@ const config = {
   module: {
     loaders: [
       {
-        test: require.resolve('react'),
+        test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192',
         loader: 'imports?shim=es5-shim/es5-shim&sham=es5-shim/es5-sham',
       },
       {
